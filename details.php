@@ -326,6 +326,41 @@ function showSlides(n) {
       <button class="btn-prim" type="submit"><i class=" fa fa-shopping-cart">Add to cart</i></button>
     </p>
   </form>
+  <style>
+    .rating {
+  display: flex;
+  justify-content: center;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.rating input[type="radio"]:checked + label {
+  color: gold;
+}
+  </style>
+  <div>
+    <span style="font-size: 15px;color:red">Rate this Products</span>
+  <div class="rating">
+  <input type="radio" name="rating" id="star5" value="5" />
+  <label for="star5">&#9733;</label>
+  <input type="radio" name="rating" id="star4" value="4" />
+  <label for="star4">&#9733;</label>
+  <input type="radio" name="rating" id="star3" value="3" />
+  <label for="star3">&#9733;</label>
+  <input type="radio" name="rating" id="star2" value="2" />
+  <label for="star2">&#9733;</label>
+  <input type="radio" name="rating" id="star1" value="1" />
+  <label for="star1">&#9733;</label>
+</div>
+  </div>
   </div>
   <div class="col-xs-4">
     <a href="#" class="thumb">
@@ -355,7 +390,19 @@ function showSlides(n) {
         
   </ul>
 </div>
+<script>
+  const rating = document.querySelector('.rating');
+const ratingValue = document.getElementById('rating-value'); // Replace with your output element ID
 
+rating.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LABEL') {
+    const ratingValue = event.target.previousElementSibling.value;
+    console.log('Selected rating:', ratingValue);
+    // Update your rating value here, e.g., display it on the page
+    ratingValue.textContent = ratingValue;
+  }
+});
+</script>
 <!--
 <div id="row same-height-row">
   <div class="col-md-3 col-sm-6">
